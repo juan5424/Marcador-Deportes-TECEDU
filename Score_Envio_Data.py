@@ -11,7 +11,7 @@ from consoles.sports import Football
 SERIAL_PORT = "COM4"          # EJEMPLO: "COM3", "COM4", etc.
 
 # IP y puerto de la PC2 (transmisión)
-UDP_IP = "10.13.14.220"       # IP de la PC2
+UDP_IP = "0.0.0.0"       # IP de la PC2 aqui dven poner por ejemplo 158.122.88.247 o la que se use en transmisión.
 UDP_PORT = 5005
 
 # Crear socket UDP
@@ -33,7 +33,8 @@ def on_update(game_state: dict):
 
     try:
         # Los nombres de claves pueden variar según la librería, aquí usamos
-        # los que has mencionado: home_score, visitor_score, clock, period.
+        # los que encontramos: home_score, visitor_score, clock, period.
+        # usamos los datos que encontramos disponibles segun las fichas tecnicas que encontre en git, puede cambiar dependiendo el deporte
         home = str(game_state.get("home_score", "0")).zfill(2)
         visit = str(game_state.get("visitor_score", "0")).zfill(2)
         clock = game_state.get("clock", "--:--")
